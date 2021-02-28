@@ -1,3 +1,7 @@
+/**
+ * Class who handle the snake
+ */
+
 class Snake extends GameObject {
 
     static VELOCITY = 10;
@@ -13,6 +17,10 @@ class Snake extends GameObject {
         this.queue = [];
     }
 
+    /**
+     * Draw the snake on the canvas
+     */
+
     drawSnake() {
 
         this.canvas.fillStyle = "green";
@@ -24,6 +32,10 @@ class Snake extends GameObject {
 
     }
 
+    /**
+     * Handle the move to right
+     */
+
     moveRight() {
 
         this.follow();
@@ -33,6 +45,10 @@ class Snake extends GameObject {
 
     }
 
+    /**
+     * Handle the move to left
+     */
+
     moveLeft() {
 
         this.follow();
@@ -41,6 +57,10 @@ class Snake extends GameObject {
         this.drawSnake();
 
     }
+
+    /**
+     * Handle the follow of the queue of the snake
+     */
 
     follow()
     {
@@ -57,6 +77,11 @@ class Snake extends GameObject {
 
     }
 
+    /**
+     * Handle the move to up
+     */
+
+
     moveUp() {
 
         this.follow();
@@ -65,6 +90,11 @@ class Snake extends GameObject {
         this.drawSnake();
 
     }
+
+
+    /**
+     * Handle the move to down
+     */
 
     moveDown() {
 
@@ -75,17 +105,33 @@ class Snake extends GameObject {
 
     }
 
+    /**
+     * Know if the snake collide the border the canvas
+     * @returns {boolean}
+     */
+
     collide() {
 
         return this.x < 0 || this.x > GameHandler.GRID_WIDTH - GameHandler.GRID_SIZE || this.y < 0 || this.y > GameHandler.GRID_HEIGHT - GameHandler.GRID_SIZE;
 
     }
 
+    /**
+     * Know if the snake collide a fruit
+     * @param fruit
+     * @returns {boolean}
+     */
+
     collideFruit(fruit) {
 
         return this.x === fruit.x && this.y === fruit.y;
 
     }
+
+    /**
+     * Returns the last square of the queue of the snake
+     * @returns {Snake|*}
+     */
 
     get last()
     {
@@ -94,6 +140,10 @@ class Snake extends GameObject {
         else return this;
 
     }
+
+    /**
+     * Grow the queue of the snake in a direction
+     */
 
     growLeft()
     {
@@ -123,6 +173,10 @@ class Snake extends GameObject {
 
     }
 
+    /**
+     * Print the current score on the screen
+     */
+
     printScore()
     {
 
@@ -130,6 +184,11 @@ class Snake extends GameObject {
         p.innerHTML = `Votre score  est ${this.score}`;
 
     }
+
+    /**
+     * Know if the snake collide is own queue
+     * @returns {boolean}
+     */
 
     selfCollide()
     {

@@ -1,15 +1,25 @@
+/**
+ * Handle the life cycle of the game and print the state of the game
+ */
+
 class GameHandler{
 
     static GRID_SIZE = 10;
     static GRID_WIDTH = 300;
     static GRID_HEIGHT = 300;
+    static UPDATE_TIME__MS = 60;
 
-    constructor(canvas) {
+    constructor() {
 
-        this.canvas = canvas;
         this.updatefct = null;
 
     }
+
+    /**
+     * Update each UPDATE_TIME__MS seconds the life cycle of the game, change the constant UPDATE_TIME__MS to accelerate the game
+     * @param GameObjects
+     * @param controller
+     */
 
     update(GameObjects,controller)
     {
@@ -66,7 +76,7 @@ class GameHandler{
                 alert("Vous avez perdu !");
             }
             fruit.appear();
-        },60);
+        },GameHandler.UPDATE_TIME__MS);
 
     }
 

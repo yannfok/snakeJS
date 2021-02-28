@@ -1,3 +1,6 @@
+/**
+ *  Classe who handle the input of the user
+ */
 class Controller {
 
     static KEY_LEFT = 37;
@@ -17,6 +20,7 @@ class Controller {
         window.addEventListener("keydown",ev => {
             if(ev.keyCode === Controller.KEY_LEFT || ev.keyCode === Controller.KEY_UP || ev.keyCode === Controller.KEY_RIGHT || ev.keyCode === Controller.KEY_DOWN)
             {
+                //Verify if the input is not in the opposite direction
                 if(ev.keyCode === Controller.KEY_LEFT && this.key !== Controller.KEY_RIGHT)
                     this.key = ev.keyCode;
                 else if(ev.keyCode === Controller.KEY_RIGHT && this.key !== Controller.KEY_LEFT)
@@ -24,7 +28,7 @@ class Controller {
                 else if(ev.keyCode === Controller.KEY_UP && this.key !== Controller.KEY_DOWN)
                     this.key = ev.keyCode;
                 else if(ev.keyCode === Controller.KEY_DOWN && this.key !== Controller.KEY_UP)
-                    this.key = ev?.keyCode;
+                    this.key = ev.keyCode;
             }
         });
 

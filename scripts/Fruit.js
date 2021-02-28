@@ -1,3 +1,6 @@
+/**
+ * Classe who handle the generation of a new fruit everytime the snake eat the current fruit
+ */
 class Fruit extends GameObject{
 
     static COLORS = ["blue","orange","cyan","purple","pink"];
@@ -18,12 +21,22 @@ class Fruit extends GameObject{
 
     }
 
+    /**
+     * Get a random position for X on the canvas
+     * @returns {*}
+     */
+
     get randomPositionX()
     {
 
         return Fruit.roundInt(Fruit.getRndInteger(0, GameHandler.GRID_WIDTH-10));
 
     }
+
+    /**
+     * Get a random position for Y on the canvas
+     * @returns {*}
+     */
 
     get randomPositionY()
     {
@@ -41,12 +54,15 @@ class Fruit extends GameObject{
             else
                 return Math.floor(j)*10;
 
-
     }
 
     static getRndInteger(min, max) {
         return Math.floor(Math.random() * (max - min + 1) ) + min;
     }
+
+    /**
+     * Make the fruit appear
+     */
 
     appear()
     {

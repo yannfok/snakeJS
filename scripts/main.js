@@ -1,6 +1,9 @@
+/**
+ * Main script
+ */
 let canvas = document.getElementById('canvas');
 let ctx = canvas.getContext('2d');
-const GameH = new GameHandler(ctx);
+const GameH = new GameHandler();
 const GameObjects = [];
 let controller = new Controller();
 controller.handle();
